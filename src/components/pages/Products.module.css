@@ -1,3 +1,13 @@
+.product_container {
+    padding: 2em;
+}
+
+.title_container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2em;
+}
+
 .newproduct_container {
     width: 450px;
     margin: 0 auto;

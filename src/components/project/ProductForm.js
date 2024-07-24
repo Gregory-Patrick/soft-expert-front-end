@@ -11,6 +11,7 @@ function ProductForm({ handleSubmit, btnText, projectData }) {
     const submit = (e) => {
         e.preventDefault()
         handleSubmit(product)
+        setProduct({})
     }
 
     function handleChange(e) {
@@ -29,22 +30,26 @@ function ProductForm({ handleSubmit, btnText, projectData }) {
             <Input
                 type="text"
                 text="Nome do Produto"
-                name="product"
+                name="name"
                 placeholder="Insira o nome do produto"
                 required handleOnChange={handleChange}
-                value={product.product ? product.product : ''}
+                value={product.name ? product.name : ''}
             />
             <Input
                 type="number"
                 text="Valor do Produto"
-                name="value_product"
+                name="price"
                 placeholder="Insira o valor do produto"
                 required handleOnChange={handleChange}
-                value={product.value_product ? product.value_product : ''}
+                value={product.price ? product.price : ''}
             />
 
-            {/* <Select name="type_product" text="Selecione o tipo do produto" handleOnChange={handleCategory} value={project.category ? project.category.id : ''/> */}
-
+            {/* <Select 
+                name="type_product" 
+                text="Selecione o Tipo do Produto" 
+                handleOnChange={handleCategory} 
+                value={product.category ? product.category.id : ''} 
+            /> */}
             <SubmitButton text={btnText}/>
         </form>
     )
