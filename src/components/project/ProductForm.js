@@ -1,4 +1,3 @@
-// import React, { useState } from 'react';
 import { useState } from 'react'
 import Input from '../form/Input'
 // import Select from '../form/Select'
@@ -18,12 +17,12 @@ function ProductForm({ handleSubmit, btnText, projectData }) {
         setProduct({ ...product, [e.target.name]: e.target.value})
     }
 
-    function handleCategory(e) {
-        setProduct({ ...product, category: {
-           id: e.target.value,
-           name: e.target.option[e.target.selectedIndex].text
-        }})
-    }
+    // function handleCategory(e) {
+    //     setProduct({ ...product, category: {
+    //        id: e.target.value,
+    //        name: e.target.option[e.target.selectedIndex].text
+    //     }})
+    // }
 
     return (
         <form onSubmit={submit} className={styles.form}>

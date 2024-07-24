@@ -40,24 +40,15 @@ function Products() {
         <div className={styles.product_container}>
             <div className={styles.title_container}>
                 <h1>Cadastrar Produtos</h1>
-                <LinkButton to="/Products" text="Cadastrar Produto"> </LinkButton>
+                <LinkButton to="/TypeOfProduct" text="Tipos de Produtos"> </LinkButton>
             </div>
-
+            {message && <Message type="success" msg={message} />}
 
             <Container customClass="start">
-                {message && <Message type="success" msg={message} />}
-                <p>Cadastre seus produtos</p>
-                <span>Produtos com cadastro incompletos não serão disponiveis para venda*</span>
-                <div className={styles.btn_container}>
-                    <ProductForm handleSubmit={createPost} btnText="Cadastrar Produto" />
-                </div>
+                    <p>Cadastre seus produtos</p>
+                        <ProductForm handleSubmit={createPost} btnText="Cadastrar Produto" />
             </Container>
         </div>
-
-
-
-
-
     )
 }
 
