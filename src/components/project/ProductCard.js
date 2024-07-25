@@ -1,29 +1,39 @@
 import { Link } from 'react-router-dom'
 import styles from './ProductCard.module.css'
-import {BsPencil, BsFillTrashFill} from 'react-icons/bs'
 
-function ProdutCard({ id, name, type, price, handleRemove }) {
+function ProdutCard({ id, name, type, price, total_tax, handleRemove }) {
+
+    const remove = (e) => {
+        e.preventDefault()
+        handleRemove(id)
+    }
+
     return (
         <div className={styles.product_card}>
-            <h4>{name} #{id}</h4>
+            <h4>{name}</h4>
             <p>
                 <span>Preço:</span> R${price}
             </p>
             <p className={styles.type_text}>
-                <span>Tipo:</span> {type}
+                <span>Tipo:</span> {type ?? 'Não cadastrado'}
             </p>
-            <div className={styles.product_card_action}>
-                {type && type.trim() !== '' && (
-                    <Link to="/">
-                        Cadastrar Tipo
-                    </Link>
-                )}
-                <Link to="/">
-                    Editar
+            <p className={styles.type_text}>
+                <span>Imposto total:</span> {total_tax ?? 'Não cadastrado'}
+            </p>
+
+            <div className={styles.product_card_action}> 
+                <Link to={`/type/${id}`}>
+                    Tipo
                 </Link>
-                <Link to="/">
+                <Link to="/tax/">
+                    Imposto
+                </Link>
+                <Link to={`/edit/${id}`}>
+                    Produto
+                </Link>
+                <button onClick={remove}>
                     Excluir
-                </Link>
+                </button>
             </div>
         </div>
     )

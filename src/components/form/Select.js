@@ -1,19 +1,26 @@
 import styles from './Select.module.css'
 
-function Select({ text, name, options, handleOnChange, value }) {
+import React from 'react';
+
+function Select({ name, text, handleOnChange, value, options }) {
     return (
         <div className={styles.form_control}>
-            <label htmlFor={name}>{text}:</label>
-            <select
-                name={name} 
+            <label htmlFor={name}>{text}</label>
+            <select 
                 id={name} 
+                name={name} 
                 onChange={handleOnChange} 
-                value={value || ''}
+                value={value}
             >
-                <option>Selecione um tipo para o produto</option>
+                <option value="" disabled>Selecione uma opção</option>
+                {options.map(option => (
+                    <option key={option.value} value={option.value}>
+                        {option.label}
+                    </option>
+                ))}
             </select>
         </div>
-    )
+    );
 }
 
-export default Select
+export default Select;

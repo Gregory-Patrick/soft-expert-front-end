@@ -3,15 +3,17 @@
     border: 1px solid #7a7a7a;
     border-radius: 5px;
     width: 30%;
-    margin: 0.5%
+    margin: 0.5%;
+    background-color: #fafafa;
 }
 
 .product_card h4 {
     background-color: #222;
-    color: #ffbb33;
+    color: #fff;
     padding: .4em;
     margin-bottom: 1.3em;
     font-size: 1.3em;
+    text-align: center;
 }
 
 .product_card p {
@@ -36,8 +38,9 @@
     background-color: #fff;
     color: #222;
     font-size: .9em;
-    padding: .6em 1em;
+    padding: .6em 0.8em;
     margin-right: 1em;
+    margin-top: -1em;
     cursor: pointer;
     border: 1px solid #222;
     display: flex;

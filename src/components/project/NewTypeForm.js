@@ -1,9 +1,9 @@
 import { useState } from 'react'
 import Input from '../form/Input'
 import SubmitButton from '../form/SubmitButton'
-import styles  from './ProductForm.module.css'
+import styles  from './NewTypeForm.module.css'
 
-function TypeOfProductForm({ handleSubmit, btnText, projectData }) {
+function NewTypeForm({ handleSubmit, btnText, projectData }) {
     const [product, setProduct] = useState(projectData || {})
 
     const submit = (e) => {
@@ -20,9 +20,9 @@ function TypeOfProductForm({ handleSubmit, btnText, projectData }) {
         <form onSubmit={submit} className={styles.form}>
             <Input
                 type="text"
-                text="Tipo do Produto"
+                text="Nome do Tipo"
                 name="name"
-                placeholder="Insira o nome para o tipo do produto"
+                placeholder="Insira o nome do tipo para os seus produtos"
                 required handleOnChange={handleChange}
                 value={product.name ? product.name : ''}
             />
@@ -31,4 +31,4 @@ function TypeOfProductForm({ handleSubmit, btnText, projectData }) {
     )
 }
 
-export default TypeOfProductForm
+export default NewTypeForm

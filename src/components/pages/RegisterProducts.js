@@ -1,12 +1,12 @@
 import { useNavigate, useLocation } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import ProductForm from '../project/ProductForm'
-import styles from './Products.module.css'
+import styles from './RegisterProducts.module.css'
 import Message from '../layout/Message';
 import LinkButton from '../layout/LinkButton';
 import Container from '../layout/Container';
 
-function Products() {
+function RegisterProducts() {
 
     const navigate = useNavigate()
     const location = useLocation()
@@ -15,7 +15,7 @@ function Products() {
     useEffect(() => {
         if (location.state) {
             setMessage(location.state.message);
-            navigate('/Products', { replace: true });
+            navigate('/register-product', { replace: true });
         }
     }, [location, navigate])
 
@@ -39,8 +39,11 @@ function Products() {
     return (
         <div className={styles.product_container}>
             <div className={styles.title_container}>
-                <h1>Cadastrar Produtos</h1>
-                <LinkButton to="/TypeOfProduct" text="Tipos de Produtos"> </LinkButton>
+                <h1>Cadastrar - Produto</h1>
+                <div className={styles.btn_container}>
+                
+                    <LinkButton to="/register-type" text="Cadastrar Tipo de Produto"> </LinkButton>
+                </div>
             </div>
             {message && <Message type="success" msg={message} />}
 
@@ -52,4 +55,4 @@ function Products() {
     )
 }
 
-export default Products
+export default RegisterProducts

@@ -1,0 +1,31 @@
+.product_container {
+    padding: 2em;
+}
+
+.title_container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2em;
+}
+
+.newproduct_container {
+    width: 1000px;
+    margin: 0 auto;
+    padding: 3em;
+}
+
+.newproduct_container h1 {
+    margin-bottom: 0.5em;
+}
+
+.newproduct_container p {
+    color: #7b7b7b;
+}
+
+.btn_container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1em;
+    justify-content: space-between;
+}
+
