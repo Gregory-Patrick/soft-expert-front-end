@@ -1,13 +1,12 @@
-import { useNavigate, useLocation } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import NewTypeForm from '../project/NewTypeForm'
-import styles from './RegisterType.module.css'
+import { useNavigate, useLocation } from 'react-router-dom';
 import Message from '../layout/Message';
-import LinkButton from '../layout/LinkButton';
 import Container from '../layout/Container';
+import LinkButton from '../layout/LinkButton';
+import styles from './RegisterType.module.css';
+import NewTypeForm from '../project/NewTypeForm';
 
 function RegisterType() {
-
     const navigate = useNavigate()
     const location = useLocation()
     const [message, setMessage] = useState('')
@@ -41,6 +40,7 @@ function RegisterType() {
             <div className={styles.title_container}>
                 <h1>Cadastrar - Tipo</h1>
                 <div className={styles.btn_container}>
+                    <LinkButton to="/register-product" text="Cadastrar Produto"> </LinkButton>
                     <LinkButton to="/register-tax" text="Cadastrar Impostos"> </LinkButton>
                 </div>
             </div>

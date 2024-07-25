@@ -1,7 +1,7 @@
-import { useState } from 'react'
-import Input from '../form/Input'
-import SubmitButton from '../form/SubmitButton'
-import styles  from './NewTypeForm.module.css'
+import { useState } from 'react';
+import Input from '../form/Input';
+import styles  from './NewTypeForm.module.css';
+import SubmitButton from '../form/SubmitButton';
 
 function NewTypeForm({ handleSubmit, btnText, projectData }) {
     const [product, setProduct] = useState(projectData || {})

@@ -1,6 +1,6 @@
-import styles from './Home.module.css'
-import stock from '../../img/stock.png'
-import LinkButton from '../layout/LinkButton'
+import styles from './Home.module.css';
+import stock from '../../img/stock.png';
+import LinkButton from '../layout/LinkButton';
 
 function Home() {
     return (

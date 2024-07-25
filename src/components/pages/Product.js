@@ -1,13 +1,10 @@
 import { useState, useEffect } from 'react';
-import Message from "../layout/Message"
-import styles from "./Product.module.css"
-import Container from "../layout/Container"
-import LinkButton from "../layout/LinkButton"
-import Loading from "../layout/Loading"
-import ProdutCard from "../project/ProductCard" 
-// import { useState, useEffect } from "react"
-
-// import TypeOfProductForm from "../project/TypeOfProductForm"
+import Loading from "../layout/Loading";
+import Message from "../layout/Message";
+import styles from "./Product.module.css";
+import Container from "../layout/Container";
+import LinkButton from "../layout/LinkButton";
+import ProdutCard from "../project/ProductCard";
 
 function Product() {
     const [products, setProducts] = useState([])

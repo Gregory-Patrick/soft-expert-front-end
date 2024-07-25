@@ -1,16 +1,18 @@
 import { useState, useEffect } from 'react';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useNavigate, useLocation, useParams } from 'react-router-dom';
 import Message from '../layout/Message';
-import Taxform from '../project/Taxform';
 import Container from '../layout/Container';
 import LinkButton from '../layout/LinkButton';
 import styles from './RegisterType.module.css';
+import EditProductForm from '../project/EditProductForm';
 
-function RegisterTax() {
+function EditProduct() {
     const navigate = useNavigate();
     const location = useLocation();
+    const { id } = useParams();
     const [message, setMessage] = useState('');
     const [productTypes, setProductTypes] = useState([]);
+    const [productData, setProductData] = useState(null);
 
     useEffect(() => {
         if (location.state) {
@@ -34,19 +36,36 @@ function RegisterTax() {
         .catch((err) => console.log(err));
     }, []);
 
-    function createPost(product) {
-        fetch('http://localhost:8080/api/tax', {
-            method: 'POST',
+    useEffect(() => {
+        fetch(`http://localhost:8080/api/products/${id}`, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        })
+        .then((resp) => resp.json())
+        .then((data) => {
+            setProductData(data);
+        })
+        .catch((err) => console.log(err));
+    }, [id]);
+
+    function edit(product) {
+        const payload = { ...product };
+
+        fetch(`http://localhost:8080/api/products/${id}`, {
+            method: 'PUT',
             headers: {
                 'Content-type': 'application/json'
             },
-            body: JSON.stringify(product)
+            body: JSON.stringify(payload)
         }).then((resp) => resp.json())
         .then((data) => {
             setMessage(data.message);
             setTimeout(() => {
                 setMessage('');
-            }, 3000);
+                navigate('/product');
+            }, 500);
         })
         .catch((err) => console.log(err));
     }
@@ -54,19 +73,25 @@ function RegisterTax() {
     return (
         <div className={styles.product_container}>
             <div className={styles.title_container}>
-                <h1>Cadastrar - Impostos</h1>
+                <h1>Edite o Produto</h1>
                 <div className={styles.btn_container}>
-                    <LinkButton to="/register-type" text="Cadastrar"> </LinkButton>
                     <LinkButton to="/product" text="Produtos"> </LinkButton>
                 </div>
             </div>
             {message && <Message type="success" msg={message} />}
             <Container customClass="start">
-                <p>Cadastre os valores percentuais de imposto do tipo de produto</p>
-                <Taxform handleSubmit={createPost} btnText="Cadastrar" productTypes={productTypes} />
+                <p>Atualize os dados</p>
+                {productData && (
+                    <EditProductForm
+                        handleSubmit={edit}
+                        btnText="Atualizar"
+                        productTypes={productTypes}
+                        projectData={productData}
+                    />
+                )}
             </Container>
         </div>
     );
 }
 
-export default RegisterTax;
+export default EditProduct;

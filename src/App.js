@@ -1,13 +1,14 @@
-import { BrowserRouter as Router, Routes, Route} from 'react-router-dom'
-import Home from './components/pages/Home'
-import RegisterProducts from './components/pages/RegisterProducts'
-import Product from './components/pages/Product'
-import RegisterTax from './components/pages/RegisterTax'
-import Container from './components/layout/Container'
-import Navbar from './components/layout/Navbar'
-import Footer from './components/layout/Footer'
-import Type from './components/pages/Type'
-import RegisterType from './components/pages/RegisterType'
+import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
+import Home from './components/pages/Home';
+import Navbar from './components/layout/Navbar';
+import Footer from './components/layout/Footer';
+import Product from './components/pages/Product';
+import TypeBind from './components/pages/TypeBind';
+import Container from './components/layout/Container';
+import RegisterTax from './components/pages/RegisterTax';
+import EditProduct from './components/pages/EditProduct';
+import RegisterType from './components/pages/RegisterType';
+import RegisterProducts from './components/pages/RegisterProducts';
  
 function App() {
   return (
@@ -20,7 +21,8 @@ function App() {
             <Route path='/register-type' element={<RegisterType />} />
             <Route path='/register-tax' element={<RegisterTax />} />
             <Route path='/product' element={<Product />} />
-            <Route path='/type/:id' element={<Type />} />
+            <Route path='/type-bind/:id' element={<TypeBind />} />
+            <Route path='/edit-product/:id' element={<EditProduct />} />
         </Routes>
       </Container>
       <Footer />

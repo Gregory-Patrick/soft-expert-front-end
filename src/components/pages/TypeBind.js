@@ -1,14 +1,15 @@
 import { useState, useEffect } from 'react';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useNavigate, useLocation, useParams } from 'react-router-dom';
 import Message from '../layout/Message';
-import Taxform from '../project/Taxform';
 import Container from '../layout/Container';
 import LinkButton from '../layout/LinkButton';
 import styles from './RegisterType.module.css';
+import TypeBindForm from '../project/TypeBindForm';
 
-function RegisterTax() {
+function TypeBind() {
     const navigate = useNavigate();
     const location = useLocation();
+    const { id } = useParams();
     const [message, setMessage] = useState('');
     const [productTypes, setProductTypes] = useState([]);
 
@@ -34,13 +35,15 @@ function RegisterTax() {
         .catch((err) => console.log(err));
     }, []);
 
-    function createPost(product) {
-        fetch('http://localhost:8080/api/tax', {
-            method: 'POST',
+    function createPut(product) {
+        const payload = { ...product };
+
+        fetch(`http://localhost:8080/api/products/${id}`, {
+            method: 'PUT',
             headers: {
                 'Content-type': 'application/json'
             },
-            body: JSON.stringify(product)
+            body: JSON.stringify(payload)
         }).then((resp) => resp.json())
         .then((data) => {
             setMessage(data.message);
@@ -54,19 +57,18 @@ function RegisterTax() {
     return (
         <div className={styles.product_container}>
             <div className={styles.title_container}>
-                <h1>Cadastrar - Impostos</h1>
+                <h1>Vincular - Tipo para o Produto</h1>
                 <div className={styles.btn_container}>
-                    <LinkButton to="/register-type" text="Cadastrar"> </LinkButton>
                     <LinkButton to="/product" text="Produtos"> </LinkButton>
                 </div>
             </div>
             {message && <Message type="success" msg={message} />}
             <Container customClass="start">
-                <p>Cadastre os valores percentuais de imposto do tipo de produto</p>
-                <Taxform handleSubmit={createPost} btnText="Cadastrar" productTypes={productTypes} />
+                <p>Selecione o Tipo para o Produto</p>
+                <TypeBindForm handleSubmit={createPut} btnText="Vincular" productTypes={productTypes} />
             </Container>
         </div>
     );
 }
 
-export default RegisterTax;
+export default TypeBind;

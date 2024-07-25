@@ -1,5 +1,5 @@
-import { Link } from 'react-router-dom'
-import styles from './ProductCard.module.css'
+import { Link } from 'react-router-dom';
+import styles from './ProductCard.module.css';
 
 function ProdutCard({ id, name, type, price, total_tax, handleRemove }) {
 
@@ -15,21 +15,18 @@ function ProdutCard({ id, name, type, price, total_tax, handleRemove }) {
                 <span>Preço:</span> R${price}
             </p>
             <p className={styles.type_text}>
-                <span>Tipo:</span> {type ?? 'Não cadastrado'}
+                <span>Tipo:</span> {type ?? 'Não vinculado'}
             </p>
             <p className={styles.type_text}>
-                <span>Imposto total:</span> {total_tax ?? 'Não cadastrado'}
+                <span>Imposto total:</span> {total_tax ?? 'Não vinculado'}
             </p>
 
             <div className={styles.product_card_action}> 
-                <Link to={`/type/${id}`}>
-                    Tipo
+                <Link to={`/type-bind/${id}`}>
+                    Vincular Tipo
                 </Link>
-                <Link to="/tax/">
-                    Imposto
-                </Link>
-                <Link to={`/edit/${id}`}>
-                    Produto
+                <Link to={`/edit-product/${id}`}>
+                    Editar
                 </Link>
                 <button onClick={remove}>
                     Excluir

@@ -1,10 +1,10 @@
-import { useNavigate, useLocation } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import ProductForm from '../project/ProductForm'
-import styles from './RegisterProducts.module.css'
+import { useNavigate, useLocation } from 'react-router-dom';
 import Message from '../layout/Message';
-import LinkButton from '../layout/LinkButton';
 import Container from '../layout/Container';
+import LinkButton from '../layout/LinkButton';
+import ProductForm from '../project/ProductForm';
+import styles from './RegisterProducts.module.css';
 
 function RegisterProducts() {
 
@@ -41,7 +41,6 @@ function RegisterProducts() {
             <div className={styles.title_container}>
                 <h1>Cadastrar - Produto</h1>
                 <div className={styles.btn_container}>
-                
                     <LinkButton to="/register-type" text="Cadastrar Tipo de Produto"> </LinkButton>
                 </div>
             </div>
@@ -49,7 +48,7 @@ function RegisterProducts() {
 
             <Container customClass="start">
                     <p>Cadastre seus produtos</p>
-                        <ProductForm handleSubmit={createPost} btnText="Cadastrar Produto" />
+                        <ProductForm handleSubmit={createPost} btnText="Cadastrar" />
             </Container>
         </div>
     )
