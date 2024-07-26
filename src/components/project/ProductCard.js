@@ -31,9 +31,6 @@ function ProductCard({ id, name, productType, price, productTax, handleRemove })
             </p>
 
             <div className={styles.product_card_action}>
-                <Link to={`/type-bind/${id}`}>
-                    Vincular Tipo
-                </Link>
                 <Link to={`/edit-product/${id}`}>
                     Editar
                 </Link>

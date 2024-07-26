@@ -3,7 +3,6 @@ import Home from './components/pages/Home';
 import Navbar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
 import Product from './components/pages/Product';
-import TypeBind from './components/pages/TypeBind';
 import Container from './components/layout/Container';
 import RegisterTax from './components/pages/RegisterTax';
 import EditProduct from './components/pages/EditProduct';
@@ -21,7 +20,6 @@ function App() {
             <Route path='/register-type' element={<RegisterType />} />
             <Route path='/register-tax' element={<RegisterTax />} />
             <Route path='/product' element={<Product />} />
-            <Route path='/type-bind/:id' element={<TypeBind />} />
             <Route path='/edit-product/:id' element={<EditProduct />} />
         </Routes>
       </Container>
