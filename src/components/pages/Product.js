@@ -4,48 +4,48 @@ import Message from "../layout/Message";
 import styles from "./Product.module.css";
 import Container from "../layout/Container";
 import LinkButton from "../layout/LinkButton";
-import ProdutCard from "../project/ProductCard";
+import ProductCard from "../project/ProductCard";
 
 function Product() {
-    const [products, setProducts] = useState([])
-    const [removeLoading, setRemoveLoading] = useState(false)
-    const [productMessage, setProjectMessage] = useState('')
+    const [products, setProducts] = useState([]);
+    const [removeLoading, setRemoveLoading] = useState(false);
+    const [productMessage, setProjectMessage] = useState('');
 
     useEffect(() => {
         setTimeout(() => {
             fetch('http://localhost:8080/api/products', {
-                method: 'GET', 
+                method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
                 }
             })
-                .then(resp => resp.json()) 
-                .then((data) => {
-                    if (data.success === false) {
-                        setProducts([]);
-                    } else {
-                        const productsArray = Array.isArray(data) ? data : [data];
-                        setProducts(productsArray)
-                    }
-                    setRemoveLoading(true)
-                })
-                .catch((err) => console.log(err))
-        }, 1000)
-    }, [])
+            .then(resp => resp.json())
+            .then((data) => {
+                if (data.success === false) {
+                    setProducts([]);
+                } else {
+                    const productsArray = Array.isArray(data) ? data : [data];
+                    setProducts(productsArray);
+                }
+                setRemoveLoading(true);
+            })
+            .catch((err) => console.log(err));
+        }, 1000);
+    }, []);
 
     function removeProduct(id) {
         fetch(`http://localhost:8080/api/products/${id}`, {
-            method: 'DELETE', 
+            method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json',
-            }, 
+            },
         })
         .then(resp => resp.json())
         .then(() => {
-            setProducts(products.filter((product) => product.id !== id))
-            setProjectMessage('Produto removido com sucesso!')
+            setProducts(products.filter((product) => product.id !== id));
+            setProjectMessage('Produto removido com sucesso!');
         })
-        .catch(err => console.log(err)) 
+        .catch(err => console.log(err));
     }
 
     return (
@@ -57,14 +57,15 @@ function Product() {
             {productMessage && <Message type="success" msg={productMessage} />}
             <span className={styles.span}>Produto com cadastro incompleto não será disponível para venda*</span>
             <Container customClass="start">
-                {products.length > 0 && 
+                {products.length > 0 &&
                     products.map((product) => (
-                        <ProdutCard
+                        <ProductCard
+                            key={product.id}
                             id={product.id}
                             name={product.name}
-                            type={product.type}
+                            productType={product.product_type}
                             price={product.price}
-                            key={product.id}
+                            productTax={product.product_tax}
                             handleRemove={removeProduct}
                         />
                     ))
@@ -75,7 +76,7 @@ function Product() {
                 )}
             </Container>
         </div>
-    )
+    );
 }
 
-export default Product
+export default Product;

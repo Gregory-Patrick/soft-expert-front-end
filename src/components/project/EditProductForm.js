@@ -16,7 +16,6 @@ function EditProductForm({ handleSubmit, btnText, projectData, productTypes }) {
     const submit = (e) => {
         e.preventDefault();
         handleSubmit(product);
-        setProduct({});
     };
 
     function handleChange(e) {

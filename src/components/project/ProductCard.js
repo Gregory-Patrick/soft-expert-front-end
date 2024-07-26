@@ -1,12 +1,21 @@
 import { Link } from 'react-router-dom';
 import styles from './ProductCard.module.css';
 
-function ProdutCard({ id, name, type, price, total_tax, handleRemove }) {
+function ProductCard({ id, name, productType, price, productTax, handleRemove }) {
 
     const remove = (e) => {
-        e.preventDefault()
-        handleRemove(id)
+        e.preventDefault();
+        handleRemove(id);
     }
+
+    const totalTax = productTax
+        ? (
+            parseFloat(productTax.pis) +
+            parseFloat(productTax.confins) +
+            parseFloat(productTax.icms) +
+            parseFloat(productTax.ipi)
+        ).toFixed(2)
+        : 'Não vinculado';
 
     return (
         <div className={styles.product_card}>
@@ -15,13 +24,13 @@ function ProdutCard({ id, name, type, price, total_tax, handleRemove }) {
                 <span>Preço:</span> R${price}
             </p>
             <p className={styles.type_text}>
-                <span>Tipo:</span> {type ?? 'Não vinculado'}
+                <span>Tipo:</span> {productType ? productType.name : 'Não vinculado'}
             </p>
             <p className={styles.type_text}>
-                <span>Imposto total:</span> {total_tax ?? 'Não vinculado'}
+                <span>Imposto total:</span> {totalTax}
             </p>
 
-            <div className={styles.product_card_action}> 
+            <div className={styles.product_card_action}>
                 <Link to={`/type-bind/${id}`}>
                     Vincular Tipo
                 </Link>
@@ -33,7 +42,7 @@ function ProdutCard({ id, name, type, price, total_tax, handleRemove }) {
                 </button>
             </div>
         </div>
-    )
+    );
 }
 
-export default ProdutCard
+export default ProductCard;
