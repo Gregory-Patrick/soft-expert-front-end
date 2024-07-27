@@ -8,15 +8,23 @@
     margin-bottom: 2em;
 }
 
-.span {
-    color: #00000080;
-    font-size: 1em;
-    
-}
-
 .btn_container {
     display: flex;
     flex-wrap: wrap;
     gap: 1em;
     justify-content: space-between;
+}
+
+.submit {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    width: 100%;
+}
+
+.submitButton {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
 }

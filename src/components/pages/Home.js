@@ -10,7 +10,7 @@ function Home() {
             <div className={styles.btn_container}>
                 <LinkButton to="/register-product" text="Cadastrar"> </LinkButton>
                 <LinkButton to="/product" text="Produtos"> </LinkButton>
-                <LinkButton to="" text="Vendas"> </LinkButton>
+                <LinkButton to="/register-sale" text="Vendas"> </LinkButton>
             </div>
             <img src={stock} alt="Stock" />
         </section>

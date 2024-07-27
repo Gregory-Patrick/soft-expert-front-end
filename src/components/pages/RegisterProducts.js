@@ -41,7 +41,8 @@ function RegisterProducts() {
             <div className={styles.title_container}>
                 <h1>Cadastrar - Produto</h1>
                 <div className={styles.btn_container}>
-                    <LinkButton to="/register-type" text="Cadastrar Tipo de Produto"> </LinkButton>
+                    <LinkButton to="/register-type" text="Tipo de Produto"> </LinkButton>
+                    <LinkButton to="/" text="Home" />
                 </div>
             </div>
             {message && <Message type="success" msg={message} />}

@@ -10,7 +10,7 @@ function Navbar() {
                     <li className={styles.item}><Link to="/">Home</Link></li>
                     <li className={styles.item}><Link to="/register-product">Cadastro de Produto</Link></li>
                     <li className={styles.item}><Link to="/product">Produtos</Link></li>
-                    <li className={styles.item}><Link to="">Vendas</Link></li>
+                    <li className={styles.item}><Link to="register-sale">Vendas</Link></li>
                 </ul>
             </Container>
         </nav>

@@ -52,10 +52,15 @@ function Product() {
         <div className={styles.product_container}>
             <div className={styles.title_container}>
                 <h1>Produtos</h1>
-                <LinkButton to="/register-product" text="Cadastrar Produto" />
+                <div className={styles.btn_container}>
+                    <LinkButton to="/register-product" text="Cadastrar Produto"></LinkButton>
+                    <LinkButton to="/register-type" text="Tipo de Produto"></LinkButton>
+                    <LinkButton to="/register-tax" text="Impostos"></LinkButton>
+                    <LinkButton to="/register-sale" text="Vendas"></LinkButton>
+                    <LinkButton to="/" text="Home" />
+                </div>
             </div>
             {productMessage && <Message type="success" msg={productMessage} />}
-            <span className={styles.span}>Produto com cadastro incompleto não será disponível para venda*</span>
             <Container customClass="start">
                 {products.length > 0 &&
                     products.map((product) => (
@@ -65,7 +70,6 @@ function Product() {
                             name={product.name}
                             productType={product.product_type}
                             price={product.price}
-                            productTax={product.product_tax}
                             handleRemove={removeProduct}
                         />
                     ))

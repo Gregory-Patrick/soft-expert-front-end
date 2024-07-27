@@ -8,6 +8,8 @@ import RegisterTax from './components/pages/RegisterTax';
 import EditProduct from './components/pages/EditProduct';
 import RegisterType from './components/pages/RegisterType';
 import RegisterProducts from './components/pages/RegisterProducts';
+import RegisterSale from './components/pages/RegisterSale';
+import OrderReview from './components/project/OrderReview';
  
 function App() {
   return (
@@ -21,6 +23,8 @@ function App() {
             <Route path='/register-tax' element={<RegisterTax />} />
             <Route path='/product' element={<Product />} />
             <Route path='/edit-product/:id' element={<EditProduct />} />
+            <Route path='/register-sale' element={<RegisterSale />} />
+            <Route path='/order-review' element={<OrderReview />} />
         </Routes>
       </Container>
       <Footer />

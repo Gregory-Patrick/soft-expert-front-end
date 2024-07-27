@@ -40,8 +40,9 @@ function RegisterType() {
             <div className={styles.title_container}>
                 <h1>Cadastrar - Tipo</h1>
                 <div className={styles.btn_container}>
-                    <LinkButton to="/register-product" text="Cadastrar Produto"> </LinkButton>
-                    <LinkButton to="/register-tax" text="Cadastrar Impostos"> </LinkButton>
+                    <LinkButton to="/register-product" text="Cadastrar Produto"/>
+                    <LinkButton to="/register-tax" text="Cadastrar Impostos"/>
+                    <LinkButton to="/" text="Home" />
                 </div>
             </div>
             {message && <Message type="success" msg={message} />}

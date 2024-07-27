@@ -56,8 +56,9 @@ function RegisterTax() {
             <div className={styles.title_container}>
                 <h1>Cadastrar - Impostos</h1>
                 <div className={styles.btn_container}>
-                    <LinkButton to="/register-type" text="Cadastrar"> </LinkButton>
-                    <LinkButton to="/product" text="Produtos"> </LinkButton>
+                    <LinkButton to="/register-type" text="Tipo de Produto" />
+                    <LinkButton to="/product" text="Produtos" />
+                    <LinkButton to="/" text="Home" />
                 </div>
             </div>
             {message && <Message type="success" msg={message} />}

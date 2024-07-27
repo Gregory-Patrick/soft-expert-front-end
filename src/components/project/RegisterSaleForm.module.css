@@ -55,12 +55,16 @@
     transition: 0.5s;
 }
 
-.product_card_action svg {
-    margin-right: .5em;
+.input {
+    padding: .7em;
+    border-radius: 0;
+    border: none;
+    width: 60px;
+    padding: 5px;
+    align-items: center;
+    text-align: center;
 }
 
-.product_card_action a:hover,
-.product_card_action button:hover {
-    background-color: #222;
-    color: #ffbb33;
+.input::placeholder {
+    columns: #7b7b7b;
 }
