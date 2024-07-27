@@ -39,7 +39,7 @@ function RegisterSale() {
     const handleSelectProduct = useCallback((id, isSelected, quantity) => {
         setSelectedProducts((prev) => {
             const existingProductIndex = prev.findIndex(product => product.id === id);
-    
+
             if (isSelected) {
                 if (existingProductIndex !== -1) {
                     return prev.map((product, index) =>
@@ -57,7 +57,7 @@ function RegisterSale() {
                 return prev.filter((product) => product.id !== id);
             }
         });
-    }, [products]); 
+    }, [products]);
 
     const handleToggleSelect = useCallback((id) => {
         setExpandedProduct((prev) => (prev === id ? null : id));
@@ -67,14 +67,13 @@ function RegisterSale() {
         console.log('Selected products:', selectedProducts); // Debug log
         navigate('/order-review', { state: { selectedProducts } });
     }, [navigate, selectedProducts]);
-    
 
     return (
         <div className={styles.product_container}>
             <div className={styles.title_container}>
                 <h1>Venda de Produtos</h1>
                 <div className={styles.btn_container}>
-                    <LinkButton to="/list-sales" text="Registro de Vendas" />
+                    <LinkButton to="/list-sale" text="Registro de Vendas" />
                     <LinkButton to="/product" text="Produtos" />
                     <LinkButton to="/" text="Home" />
                 </div>

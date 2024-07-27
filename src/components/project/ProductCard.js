@@ -2,18 +2,17 @@ import { Link } from 'react-router-dom';
 import styles from './ProductCard.module.css';
 
 function ProductCard({ id, name, productType, price, handleRemove }) {
-
     const remove = (e) => {
         e.preventDefault();
         handleRemove(id);
     }
 
-    const totalTax = productType.product_tax
+    const totalTax = productType && productType.product_tax
         ? (
-            parseFloat(productType.product_tax.pis) +
-            parseFloat(productType.product_tax.confins) +
-            parseFloat(productType.product_tax.icms) +
-            parseFloat(productType.product_tax.ipi)
+            parseFloat(price) * (parseFloat(productType.product_tax.pis || 0) / 100) +
+            parseFloat(price) * (parseFloat(productType.product_tax.confins || 0) / 100) +
+            parseFloat(price) * (parseFloat(productType.product_tax.icms || 0) / 100) +
+            parseFloat(price) * (parseFloat(productType.product_tax.ipi || 0) / 100)
         ).toFixed(2)
         : 'Não vinculado';
 

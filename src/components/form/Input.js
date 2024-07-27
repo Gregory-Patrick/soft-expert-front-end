@@ -1,6 +1,6 @@
 import styles from './Input.module.css'
 
-function Input({ type, text, name, placeholder, handleOnChange, value, required }) {
+function Input({ type, text, name, placeholder, handleOnChange, value, required, min, max}) {
     return (
         <div className={styles.form_control}>
             <label htmlFor={name}>{text}:</label>
@@ -11,6 +11,8 @@ function Input({ type, text, name, placeholder, handleOnChange, value, required 
                 onChange={handleOnChange}
                 value={value}
                 required={required}
+                min={min}
+                max={max}
                 />
         </div>
     )

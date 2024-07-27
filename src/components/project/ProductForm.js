@@ -33,6 +33,7 @@ function ProductForm({ handleSubmit, btnText, projectData }) {
                 placeholder="Insira o valor do produto"
                 required handleOnChange={handleChange}
                 value={product.price ? product.price : ''}
+                min="1"
             />
             <SubmitButton text={btnText}/>
         </form>

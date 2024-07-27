@@ -20,17 +20,19 @@ function OrderReview() {
         if (Array.isArray(selectedProducts)) {
             const totals = selectedProducts.reduce((acc, product) => {
                 const quantity = product.quantity;
-                const totalProductValue = parseFloat(product.price) * quantity;
-                const totalTax = product.product_type?.product_tax
-                    ? parseFloat(product.product_type.product_tax.pis || 0) +
-                      parseFloat(product.product_type.product_tax.confins || 0) +
-                      parseFloat(product.product_type.product_tax.icms || 0) +
-                      parseFloat(product.product_type.product_tax.ipi || 0)
+                const totalProductValue = parseFloat(product.price);
+                const totalTaxValue = product.product_type?.product_tax
+                    ? (
+                        parseFloat(product.price) * (parseFloat(product.product_type.product_tax.pis || 0) / 100) +
+                        parseFloat(product.price) * (parseFloat(product.product_type.product_tax.confins || 0) / 100) +
+                        parseFloat(product.price) * (parseFloat(product.product_type.product_tax.icms || 0) / 100) +
+                        parseFloat(product.price) * (parseFloat(product.product_type.product_tax.ipi || 0) / 100)
+                    )
                     : 0;
 
-                acc.totalProductValue += totalProductValue;
-                acc.totalTax += totalTax;
-                acc.totalToPay += totalProductValue + totalTax;
+                acc.totalProductValue += totalProductValue * quantity;
+                acc.totalTax += totalTaxValue * quantity;
+                acc.totalToPay += (totalProductValue + totalTaxValue) * quantity;
 
                 return acc;
             }, {
@@ -66,7 +68,7 @@ function OrderReview() {
             <div className={styles.title_container}>
                 <h1>Revisão do Pedido</h1>
                 <div className={styles.btn_container}>
-                    <LinkButton to="/list-sales" text="Registro de Vendas" />
+                    <LinkButton to="/list-sale" text="Registro de Vendas" />
                     <LinkButton to="/product" text="Produtos" />
                     <LinkButton to="/" text="Home" />
                 </div>
@@ -78,23 +80,30 @@ function OrderReview() {
                         <tr>
                             <th>Valor do Produto</th>
                             <th>Imposto</th>
-                            <th>Quantidade (Unidade)</th>
+                            <th>Imposto Total</th>
+                            <th>Quantidade</th>
                         </tr>
                     </thead>
                     <tbody>
                         {Array.isArray(selectedProducts) && selectedProducts.map(product => {
                             const quantity = product.quantity;
-                            const totalProductValue = parseFloat(product.price) * quantity;
-                            const totalTax = product.product_type?.product_tax
-                                ? parseFloat(product.product_type.product_tax.pis || 0) +
-                                  parseFloat(product.product_type.product_tax.confins || 0) +
-                                  parseFloat(product.product_type.product_tax.icms || 0) +
-                                  parseFloat(product.product_type.product_tax.ipi || 0)
-                                : 0;
+                            const productValue = parseFloat(product.price);
+                            const pisTax = parseFloat(product.product_type?.product_tax.pis || 0);
+                            const confinsTax = parseFloat(product.product_type?.product_tax.confins || 0);
+                            const icmsTax = parseFloat(product.product_type?.product_tax.icms || 0);
+                            const ipiTax = parseFloat(product.product_type?.product_tax.ipi || 0);
+                            const totalTaxPercentage = pisTax + confinsTax + icmsTax + ipiTax;
+                            const totalTaxValue = (
+                                productValue * (pisTax / 100) +
+                                productValue * (confinsTax / 100) +
+                                productValue * (icmsTax / 100) +
+                                productValue * (ipiTax / 100)
+                            );
                             return (
                                 <tr key={product.id}>
-                                    <td>R$ {totalProductValue.toFixed(2)}</td>
-                                    <td>R$ {totalTax.toFixed(2)}</td>
+                                    <td>R$ {productValue.toFixed(2)}</td>
+                                    <td>{totalTaxPercentage.toFixed(2)} %</td>
+                                    <td>R$ {totalTaxValue.toFixed(2)}</td>
                                     <td>{quantity}</td>
                                 </tr>
                             );
@@ -119,8 +128,8 @@ function OrderReview() {
                 </table>
             </Container>
             <div className={styles.btn_container}>
-                    <LinkButton to="/register-sale" text="Cancelar" />
-                    <SubmitOrderButton text='Finalizar Pedido' onClick={handleSubmit} />
+                <LinkButton to="/register-sale" text="Cancelar" />
+                <SubmitOrderButton text='Finalizar Pedido' onClick={handleSubmit} />
             </div>
         </div>
     );

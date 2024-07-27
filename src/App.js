@@ -9,7 +9,8 @@ import EditProduct from './components/pages/EditProduct';
 import RegisterType from './components/pages/RegisterType';
 import RegisterProducts from './components/pages/RegisterProducts';
 import RegisterSale from './components/pages/RegisterSale';
-import OrderReview from './components/project/OrderReview';
+import OrderReview from './components/pages/OrderReview';
+import ListSale from './components/pages/ListSale';
  
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
             <Route path='/edit-product/:id' element={<EditProduct />} />
             <Route path='/register-sale' element={<RegisterSale />} />
             <Route path='/order-review' element={<OrderReview />} />
+            <Route path='/list-sale' element={<ListSale />} />
         </Routes>
       </Container>
       <Footer />

@@ -15,14 +15,14 @@ function RegisterSaleForm({ id, name, productType, price, handleSelectProduct })
 
     useEffect(() => {
         handleSelectProduct(id, isBuying, quantity);
-    }, [isBuying, quantity]);
+    }, [isBuying, quantity, id, handleSelectProduct]);
 
-    const totalTax = productType.product_tax
+    const totalTax = productType && productType.product_tax
         ? (
-            parseFloat(productType.product_tax.pis) +
-            parseFloat(productType.product_tax.confins) +
-            parseFloat(productType.product_tax.icms) +
-            parseFloat(productType.product_tax.ipi)
+            parseFloat(price) * (parseFloat(productType.product_tax.pis || 0) / 100) +
+            parseFloat(price) * (parseFloat(productType.product_tax.confins || 0) / 100) +
+            parseFloat(price) * (parseFloat(productType.product_tax.icms || 0) / 100) +
+            parseFloat(price) * (parseFloat(productType.product_tax.ipi || 0) / 100)
         ).toFixed(2)
         : 'Não vinculado';
 
@@ -36,7 +36,7 @@ function RegisterSaleForm({ id, name, productType, price, handleSelectProduct })
                 <span>Tipo:</span> {productType ? productType.name : 'Não vinculado'}
             </p>
             <p className={styles.type_text}>
-                <span>Impostos:</span> R${totalTax}
+                <span>Impostos:</span> {totalTax}
             </p>
             <p className={styles.type_text}>
                 <input

@@ -2,7 +2,7 @@ import styles from './Select.module.css'
 
 import React from 'react';
 
-function Select({ name, text, handleOnChange, value, options }) {
+function Select({ name, text, handleOnChange, value, options, required }) {
     return (
         <div className={styles.form_control}>
             <label htmlFor={name}>{text}</label>
@@ -11,6 +11,7 @@ function Select({ name, text, handleOnChange, value, options }) {
                 name={name} 
                 onChange={handleOnChange} 
                 value={value}
+                required={required}
             >
                 <option value="" disabled>Selecione uma opção</option>
                 {options.map(option => (
