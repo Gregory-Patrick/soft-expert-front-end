@@ -1,19 +1,19 @@
 import { Link } from 'react-router-dom';
 import styles from './ProductCard.module.css';
 
-function ProductCard({ id, name, productType, price, productTax, handleRemove }) {
+function ProductCard({ id, name, productType, price, handleRemove }) {
 
     const remove = (e) => {
         e.preventDefault();
         handleRemove(id);
     }
 
-    const totalTax = productTax
+    const totalTax = productType.product_tax
         ? (
-            parseFloat(productTax.pis) +
-            parseFloat(productTax.confins) +
-            parseFloat(productTax.icms) +
-            parseFloat(productTax.ipi)
+            parseFloat(productType.product_tax.pis) +
+            parseFloat(productType.product_tax.confins) +
+            parseFloat(productType.product_tax.icms) +
+            parseFloat(productType.product_tax.ipi)
         ).toFixed(2)
         : 'Não vinculado';
 
