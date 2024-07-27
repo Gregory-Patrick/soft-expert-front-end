@@ -55,26 +55,35 @@ function ListSale() {
                         </tr>
                     </thead>
                     <tbody>
-                        {sales.map(sale => (
-                            <tr key={sale.id}>
-                                <td>R$ {parseFloat(sale.price_uni).toFixed(2)}</td>
-                                <td>{sale.quantity}</td>
-                                <td>R$ {parseFloat(sale.price_total).toFixed(2)}</td>
-                                <td>{parseFloat(sale.sale_tax.pis).toFixed(2)} %</td>
-                                <td>{parseFloat(sale.sale_tax.confins).toFixed(2)} %</td>
-                                <td>{parseFloat(sale.sale_tax.icms).toFixed(2)} %</td>
-                                <td>{parseFloat(sale.sale_tax.ipi).toFixed(2)} %</td>
-                                <td>R$ {parseFloat(sale.sale_tax.total).toFixed(2)}</td>
-                            </tr>
-                        ))}
+                        {sales.map(sale => {
+                            const priceUni = parseFloat(sale.price_uni);
+                            const pis = parseFloat(sale.sale_tax.pis);
+                            const cofins = parseFloat(sale.sale_tax.confins);
+                            const icms = parseFloat(sale.sale_tax.icms);
+                            const ipi = parseFloat(sale.sale_tax.ipi);
+                            const totalTax = ((pis + cofins + icms + ipi) / 100) * priceUni * sale.quantity;
+                            
+                            return (
+                                <tr key={sale.id}>
+                                    <td>R$ {priceUni.toFixed(2)}</td>
+                                    <td>{sale.quantity}</td>
+                                    <td>R$ {parseFloat(sale.price_total).toFixed(2)}</td>
+                                    <td>{pis.toFixed(2)} %</td>
+                                    <td>{cofins.toFixed(2)} %</td>
+                                    <td>{icms.toFixed(2)} %</td>
+                                    <td>{ipi.toFixed(2)} %</td>
+                                    <td>R$ {totalTax.toFixed(2)}</td>
+                                </tr>
+                            );
+                        })}
                         {!removeLoading && (
                             <tr>
-                                <td colSpan="10">Carregando...</td>
+                                <td colSpan="8">Carregando...</td>
                             </tr>
                         )}
                         {removeLoading && sales.length === 0 && (
                             <tr>
-                                <td colSpan="10">Nenhum pedido encontrado</td>
+                                <td colSpan="8">Nenhum pedido encontrado</td>
                             </tr>
                         )}
                     </tbody>
