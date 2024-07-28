@@ -81,16 +81,18 @@ function RegisterSale() {
             <Container customClass="start">
                 {products.length > 0 &&
                     products.map((product) => (
-                        <RegisterSaleForm
-                            key={product.id}
-                            id={product.id}
-                            name={product.name}
-                            productType={product.product_type}
-                            price={product.price}
-                            handleSelectProduct={handleSelectProduct}
-                            isSelected={expandedProduct === product.id}
-                            handleToggleSelect={handleToggleSelect}
-                        />
+                        product.product_type && (
+                            <RegisterSaleForm
+                                key={product.id}
+                                id={product.id}
+                                name={product.name}
+                                productType={product.product_type}
+                                price={product.price}
+                                handleSelectProduct={handleSelectProduct}
+                                isSelected={expandedProduct === product.id}
+                                handleToggleSelect={handleToggleSelect}
+                            />
+                        )
                     ))
                 }
                 {!removeLoading && <Loading />}

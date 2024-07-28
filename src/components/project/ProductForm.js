@@ -34,6 +34,7 @@ function ProductForm({ handleSubmit, btnText, projectData }) {
                 required handleOnChange={handleChange}
                 value={product.price ? product.price : ''}
                 min="1"
+                step="0.01"
             />
             <SubmitButton text={btnText}/>
         </form>

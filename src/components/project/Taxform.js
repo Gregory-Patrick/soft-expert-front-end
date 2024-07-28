@@ -89,6 +89,7 @@ function Taxform({ handleSubmit, btnText, projectData, productTypes }) {
                 value={taxes.pis}
                 min="0"
                 max="100"
+                step="0.01"
             />
             <Input
                 type="number"
@@ -100,6 +101,7 @@ function Taxform({ handleSubmit, btnText, projectData, productTypes }) {
                 value={taxes.confins}
                 min="0"
                 max="100"
+                step="0.01"
             />
             <Input
                 type="number"
@@ -111,6 +113,7 @@ function Taxform({ handleSubmit, btnText, projectData, productTypes }) {
                 value={taxes.icms}
                 min="0"
                 max="100"
+                step="0.01"
             />
             <Input
                 type="number"
@@ -122,6 +125,7 @@ function Taxform({ handleSubmit, btnText, projectData, productTypes }) {
                 value={taxes.ipi}
                 min="0"   
                 max="100"
+                step="0.01"
             />
             <SubmitButton text={btnText} />
         </form>
