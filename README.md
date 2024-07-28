@@ -6,7 +6,8 @@ Bem-vindo ao Mercadinho, uma aplicação React para gerenciar o cadastro e a ven
 
 - [Visão Geral](#visão-geral)
 - [Instalação](#instalação)
-- [Visualizar](#veja)
+- [Visualizar](#visualizar)
+- [Dicas](#dica)
 - [Uso](#uso)
 
 ## Visão Geral
@@ -40,12 +41,12 @@ A aplicação estará disponível em [http://localhost:3000](http://localhost:30
 
 ## Visualizar 
 
-A aplicação também pode ser vista diretamente em seu navegador: [https://soft-expert-front-end.vercel.app/](https://soft-expert-front-end.vercel.app/).
+A aplicação também pode ser vista diretamente em seu navegador: [Mercadinho](https://soft-expert-front-end.vercel.app/).
 
 ## Dicas 
 
 Para uma melhor experiência de tudo que o 'Mercadinho' tem a oferecer recomendo utilizar API preparada para o registro de dados.
-A estrutura do back-end está disponível aqui : [https://github.com/Gregory-Patrick/soft-expert-back-end](API).
+A estrutura do back-end está disponível aqui : [API](https://github.com/Gregory-Patrick/soft-expert-back-end).
 
 ## Uso
 
