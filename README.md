@@ -1,70 +1,59 @@
-# Getting Started with Create React App
+# Mercadinho
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Bem-vindo ao Mercadinho, uma aplicação React para gerenciar o cadastro e a venda de produtos.
 
-## Available Scripts
+## Índice
 
-In the project directory, you can run:
+- [Visão Geral](#visão-geral)
+- [Instalação](#instalação)
+- [Visualizar](#veja)
+- [Uso](#uso)
 
-### `npm start`
+## Visão Geral
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+O Mercadinho é uma aplicação web desenvolvida em React que permite aos usuários cadastrar produtos, impostos, visualizar a lista de produtos disponíveis, registrar vendas e ver o histórico de vendas. A interface é simples e intuitiva, permitindo uma fácil navegação entre as funcionalidades.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Instalação
 
-### `npm test`
+Para começar a usar a aplicação localmente, siga os passos abaixo:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1. Clone o repositório:
 
-### `npm run build`
+    ```sh
+    git clone https://github.com/seu-usuario/mercadinho.git
+    cd mercadinho
+    ```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+2. Instale as dependências:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+    ```sh
+    npm install
+    ```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+3. Inicie o servidor de desenvolvimento:
 
-### `npm run eject`
+    ```sh
+    npm start
+    ```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+A aplicação estará disponível em [http://localhost:3000](http://localhost:3000).
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Visualizar 
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+A aplicação também pode ser vista diretamente em seu navegador: [https://soft-expert-front-end.vercel.app/](https://soft-expert-front-end.vercel.app/).
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Dicas 
 
-## Learn More
+Para uma melhor experiência de tudo que o 'Mercadinho' tem a oferecer recomendo utilizar API preparada para o registro de dados.
+A estrutura do back-end está disponível aqui : [https://github.com/Gregory-Patrick/soft-expert-back-end](API).
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Uso
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+A aplicação possui três funcionalidades principais:
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+1. **Cadastrar Produtos:** Permite o registro de novos produtos no sistema.
+2. **Cadastrar Tipo:** Permite o registro dos tipos dos produtos.
+3. **Cadastrar Imposto:** Permite o registro de impostos sobre o tipo de produto.
+2. **Visualizar Produtos:** Exibe a lista de produtos cadastrados.
+3. **Registrar Vendas:** Permite registrar vendas de produtos cadastrados.
+4. **Exibir Histórico:** Permite visualzar todo o histórico de compras realizado.
