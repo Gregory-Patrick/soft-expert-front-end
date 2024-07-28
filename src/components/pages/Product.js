@@ -61,7 +61,7 @@ function Product() {
                 </div>
             </div>
             {productMessage && <Message type="success" msg={productMessage} />}
-            <span className={styles.span}>Produto com cadastro incompleto não será disponível para venda e Produto com vendas registradas não poderão ser excluidos*</span>
+            <span className={styles.span}>Produtos com cadastro incompleto não será disponível para venda e proodutos com vendas registradas não poderão ser excluidos*</span>
             <Container customClass="start">
                 {products.length > 0 &&
                     products.map((product) => (
